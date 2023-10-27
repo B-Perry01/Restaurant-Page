@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
     console.log('Development mode!');
   }
 
-//topbar logic
+//topbar
 const topBar = document.getElementById("top-bar");
 const header = document.createElement("div");
 const logo = new Image();
@@ -19,8 +19,7 @@ header.setAttribute("id", "header")
 headerTxt.textContent = "Pingus Perfect Pastries!";
     
 logo.src = Sandwich;
-logo.style.height = "75px";
-logo.style.width = "75px";
+logo.setAttribute("id", "logo");
 
 header.appendChild(logo);
 header.appendChild(headerTxt);
@@ -33,21 +32,25 @@ const homeBtn = document.createElement("button");
 const menuBtn = document.createElement("button");
 const cntctBtn = document.createElement("button");
 
-btnContainer.classList.add("btn-container");
+btnContainer.classList.add("btnContainer");
 homeBtn.setAttribute("id", "home-btn");
 menuBtn.setAttribute("id", "menu-btn");
 cntctBtn.setAttribute("id", "cntct-btn");
 
+homeBtn.textContent = "Home";
+menuBtn.textContent = "Menu";
+cntctBtn.textContent = "Contact";
+
 homeBtn.addEventListener("click", e => {
-    content.innerHTML("");
+    content.innerHTML = "";
     homePage();
 });
 menuBtn.addEventListener("click", e => {
-    content.innerHTML("");
+    content.innerHTML = "";
     menuPage();
 })
 cntctBtn.addEventListener("click", e => {
-    content.innerHTML("");
+    content.innerHTML = "";
     contactPage();
 })
 
@@ -57,3 +60,5 @@ btnContainer.appendChild(cntctBtn);
 
 topBar.appendChild(header);
 topBar.appendChild(btnContainer);
+
+homePage(); //initial starting page
